@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk' // adapte si nécessaire
+        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk'
         PATH_TO_FX = '/opt/javafx-sdk-21/lib'
         APP_NAME = 'CalculatriceDEEVEN'
         VERSION = '1.0.0'
@@ -17,7 +17,7 @@ pipeline {
 
         stage('📥 Checkout Code') {
             steps {
-                git 'https://github.com/ton-utilisateur/ton-repo.git' // 🔁 adapte ton repo
+                git 'https://github.com/DEEVEN-k/PROJET_JENKINS.git'
             }
         }
 
@@ -86,16 +86,14 @@ Description: Calculatrice JavaFX avec interface moderne" > deb/DEBIAN/control
         stage('🚀 Déploiement (CD)') {
             steps {
                 script {
-                    // 🔧 Remplace ce bloc par ton propre système de déploiement
-                    // Exemples : scp, ftp, rsync ou copie vers un dossier partagé
+
                     echo "Déploiement des artefacts..."
                     sh '''
                     mkdir -p deployment_output
                     cp build/jar/*.jar deployment_output/
                     [ -f *.deb ] && cp *.deb deployment_output/ || true
                     '''
-                    // Exemple de déploiement : rsync, scp, API REST...
-                    // sh "scp *.deb user@serveur:/var/www/deploy/"
+
                 }
             }
         }
