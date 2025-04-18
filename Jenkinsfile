@@ -16,6 +16,7 @@ pipeline {
         stage('🛠️ Compile Sources') {
             steps {
                 sh 'mvn clean install'
+
             }
         }
 
