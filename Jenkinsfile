@@ -15,7 +15,8 @@ pipeline {
 
         stage('🛠️ Compile Sources') {
             steps {
-                sh './gradlew clean build'
+                sh 'mvn clean install'
+
             }
         }
 
